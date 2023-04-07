@@ -1,20 +1,9 @@
-const { MongoClient, ServerApiVersion } = require("mongodb");
+const mongoose = require("mongoose");
 
 const connectDatabase = () => {
-  const uri = process.env.DB_URI;
-  const client = new MongoClient(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    serverApi: ServerApiVersion.v1,
+  mongoose.connect(process.env.DB_URI).then((con) => {
+    console.log("Databse Connected");
   });
-  client
-    .connect((err) => {
-      console.log(err);
-      client.close();
-    })
-    .then(() => {
-      console.log("database connected");
-    });
 };
 
 module.exports = connectDatabase;
