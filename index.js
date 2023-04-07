@@ -4,6 +4,7 @@ const connectDatabase = require("./config/database");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const user = require("./Routes/userRoutes");
+const post = require("./Routes/postRoutes");
 const errorMiddleware = require("./middleware/error");
 
 const app = express();
@@ -21,6 +22,7 @@ app.use(cookieParser());
 
 // mounting routes
 app.use("/api/v1", user);
+app.use("/api/v1", post);
 
 //Middleware to handle error
 app.use(errorMiddleware);
