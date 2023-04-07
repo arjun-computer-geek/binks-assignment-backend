@@ -6,6 +6,7 @@ const cookieParser = require("cookie-parser");
 const user = require("./Routes/userRoutes");
 const post = require("./Routes/postRoutes");
 const errorMiddleware = require("./middleware/error");
+const comment = require("./Routes/commentRoutes");
 
 const app = express();
 
@@ -23,7 +24,7 @@ app.use(cookieParser());
 // mounting routes
 app.use("/api/v1", user);
 app.use("/api/v1", post);
-
+app.use("/api/v1", comment);
 //Middleware to handle error
 app.use(errorMiddleware);
 //listning server
