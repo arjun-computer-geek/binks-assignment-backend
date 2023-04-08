@@ -7,6 +7,7 @@ const user = require("./Routes/userRoutes");
 const post = require("./Routes/postRoutes");
 const errorMiddleware = require("./middleware/error");
 const comment = require("./Routes/commentRoutes");
+const cors = require("cors");
 
 const app = express();
 
@@ -20,6 +21,7 @@ connectDatabase();
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(cors());
 
 // mounting routes
 app.use("/api/v1", user);
