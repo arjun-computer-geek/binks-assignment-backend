@@ -5,11 +5,12 @@ const ErrorHandler = require("../utils/errorHandler");
 
 // Register a user => /api/v1/register
 exports.registerUser = catchAsync(async (req, res, next) => {
-  const { name, email, password } = req.body;
+  const { name, email, password, username } = req.body;
   const user = await User.create({
     name,
     email,
     password,
+    username,
   });
   sendToken(user, 200, res);
 });
@@ -24,7 +25,9 @@ exports.loginUser = catchAsync(async (req, res, next) => {
   }
 
   //Finding user in database
-  const user = await User.findOne({ email }).select("password");
+  const user = await User.findOne({
+    $or: [{ email: email }, { username: email }],
+  }).select("password");
 
   if (!user) {
     return next(new ErrorHandler("Invalid Email or Password", 400));
