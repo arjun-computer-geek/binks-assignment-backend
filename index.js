@@ -8,6 +8,7 @@ const post = require("./Routes/postRoutes");
 const errorMiddleware = require("./middleware/error");
 const comment = require("./Routes/commentRoutes");
 const cors = require("cors");
+const helmet = require("helmet");
 
 const app = express();
 
@@ -18,9 +19,10 @@ dotenv.config({ path: "./config/config.env" });
 connectDatabase();
 
 // using global middlewares
-app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(helmet());
 app.use(cookieParser());
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
 // mounting routes
