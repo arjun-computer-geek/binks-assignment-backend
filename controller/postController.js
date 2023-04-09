@@ -85,6 +85,7 @@ exports.likePost = catchAsync(async (req, res, next) => {
     await post.updateOne({ $push: { likes: req.user._id } });
     res.status(200).json({
       success: true,
+
       message: "Post Liked Successfully",
     });
   } else {

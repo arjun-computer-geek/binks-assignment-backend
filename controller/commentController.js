@@ -23,7 +23,7 @@ exports.createComment = catchAsync(async (req, res, next) => {
 
 // get all comment of a post => /api/v1/comments/POSTID
 exports.getAllComments = catchAsync(async (req, res, next) => {
-  const comments = await Comment.find({ post: req.params.id });
+  const comments = await Comment.find({ post: req.params.id }).populate("user");
   res.status(200).json({
     success: true,
     comments,
