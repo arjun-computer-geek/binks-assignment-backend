@@ -17,7 +17,7 @@ exports.createPost = catchAsync(async (req, res, next) => {
 
 // get all post => /api/v1/posts
 exports.getAllPost = catchAsync(async (req, res, next) => {
-  const posts = await Post.find();
+  const posts = await Post.find().sort({ _id: -1 });
   res.status(200).json({
     success: true,
     posts,

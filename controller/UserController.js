@@ -43,6 +43,18 @@ exports.loginUser = catchAsync(async (req, res, next) => {
   sendToken(user, 200, res);
 });
 
+//Get user by id => api/v1/user/:USERID
+exports.getUserById = catchAsync(async (req, res, next) => {
+  const user = await User.findById(req.params.id).select("+password");
+  if (!user) {
+    return next(new ErrorHandler("User not found with this ID", 404));
+  }
+  res.status(200).json({
+    success: true,
+    user,
+  });
+});
+
 //Get currently logged in user details => /api/v1/me
 exports.getUserProfile = catchAsync(async (req, res, next) => {
   const user = await User.findById(req.user.id);
