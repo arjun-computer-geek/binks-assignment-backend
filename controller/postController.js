@@ -81,17 +81,24 @@ exports.deleteMyPost = catchAsync(async (req, res, next) => {
 // Like user Posts => /api/v1/my/post/like/postID
 exports.likePost = catchAsync(async (req, res, next) => {
   const post = await Post.findById(req.params.id);
+  let likeCount = post.likes.length;
   if (!post.likes.includes(req.user._id)) {
+    likeCount = likeCount + 1;
     await post.updateOne({ $push: { likes: req.user._id } });
     res.status(200).json({
       success: true,
-
+      likes: likeCount,
       message: "Post Liked Successfully",
     });
   } else {
-    await post.updateOne({ $pull: { likes: req.user._id } });
+    likeCount = likeCount - 1;
+    await post.updateOne({
+      $pull: { likes: req.user._id },
+    });
+
     res.status(200).json({
       success: true,
+      likes: likeCount,
       message: "Post Disliked Successfully",
     });
   }
