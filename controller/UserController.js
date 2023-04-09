@@ -94,7 +94,7 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
   sendToken(user, 200, res);
 });
 
-//Update user profile => /api/v1/me/update
+//Update user's profile => /api/v1/me/update
 exports.updateProfile = catchAsync(async (req, res, next) => {
   const newUserData = {
     name: req.body.name,
