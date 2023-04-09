@@ -19,6 +19,7 @@ dotenv.config({ path: "./config/config.env" });
 connectDatabase();
 
 // using global middlewares
+app.use(express.static("dist"));
 app.use(helmet());
 app.use(cookieParser());
 app.use(express.json());
