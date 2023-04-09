@@ -99,6 +99,8 @@ exports.updateProfile = catchAsync(async (req, res, next) => {
   const newUserData = {
     name: req.body.name,
     email: req.body.email,
+    username: req.body.usernmae,
+    bio: req.body.bio,
   };
 
   const user = await User.findByIdAndUpdate(req.user.id, newUserData, {

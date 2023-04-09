@@ -15,6 +15,10 @@ const userSchema = new mongoose.Schema({
     maxLength: [15, "Your username can't exced 30 character"],
     unique: true,
   },
+  bio: {
+    type: String,
+    default: "Hey! I'm at binks social",
+  },
   email: {
     type: String,
     require: [true, "Please enter your email"],
