@@ -17,7 +17,7 @@ exports.createPost = catchAsync(async (req, res, next) => {
 
 // get all post => /api/v1/posts
 exports.getAllPost = catchAsync(async (req, res, next) => {
-  const posts = await Post.find().sort({ _id: -1 });
+  const posts = await Post.find().sort({ _id: -1 }).populate("user");
   res.status(200).json({
     success: true,
     posts,
@@ -26,7 +26,7 @@ exports.getAllPost = catchAsync(async (req, res, next) => {
 
 // Get single post => /api/v1/post/postId
 exports.getSinglePost = catchAsync(async (req, res, next) => {
-  const post = await Post.findById(req.params.id);
+  const post = await Post.findById(req.params.id).populate("user");
   if (!post) {
     return next(new ErrorHandler("No post found with this ID", 404));
   }
@@ -38,7 +38,7 @@ exports.getSinglePost = catchAsync(async (req, res, next) => {
 
 // Get user Posts => /api/v1/my/posts
 exports.getMyPost = catchAsync(async (req, res, next) => {
-  const posts = await Post.find({ user: req.user._id });
+  const posts = await Post.find({ user: req.user._id }).populate("user");
   if (!posts) {
     return next(new ErrorHandler("No Post found", 404));
   }
