@@ -22,7 +22,7 @@ connectDatabase();
 app.use(helmet());
 app.use(cookieParser());
 app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 // mounting routes
