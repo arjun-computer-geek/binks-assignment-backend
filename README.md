@@ -5,6 +5,22 @@ This application has a basic jwt and cookied based authentication system and abi
 ## Link
 https://blinks-test.onrender.com
 
+## Technology Stack
+This project utilizes the following technologies:
+
+* Express: A popular Node.js framework for building web applications.
+* Bcrypt: A library used for hashing and salting passwords for secure storage in the database.
+* Body-parser: A middleware that parses the request body in Node.js, making it easy to handle data sent from the client.
+* Mongoose: A powerful object modeling tool for MongoDB, a NoSQL database, that simplifies working with data in Node.js.
+* JsonWebToken (JWT): A library for creating and verifying JSON web tokens, commonly used for authentication and authorization in web applications.
+* Validator: A library for validating and sanitizing user input data in Node.js, helping to prevent security vulnerabilities such as SQL injection and XSS attacks.
+
+These technologies were used in the development of this project to ensure secure and efficient handling of data, authentication, and authorization, as well as smooth integration with the MongoDB database.
+
+
+
+
+
 ## How to Run on Local
 ### prerequisite
 * nodejs installed
