@@ -1,9 +1,16 @@
 # binks-assignment-backend
 
-This application has a basic jwt and cookied based authentication system and ability to update, edit and delete post and user details.
+This application is a social media app that includes a basic authentication system using JSON Web Tokens (JWT) and cookies for secure user authentication and authorization. Users can register, log in, and log out securely with their credentials, and their authentication status is maintained using JWT and cookies.
+
+The app also provides functionality for users to create, update, and delete their posts, as well as edit their user details. Posts can be created with formatted text using a rich text editor, and users can also like and comment on posts made by other users.
+
+The authentication system implemented in this app allows for secure and seamless user experience, ensuring that only authenticated users can perform actions such as creating, editing, and deleting posts and user details. The use of JWT and cookies provides a reliable and efficient way to manage user authentication and authorization in the application, while also ensuring data integrity and security.
 
 ## Link
 https://blinks-test.onrender.com
+
+### Frontend Repo
+https://github.com/arjun-computer-geek/binks-assignment-frontend.git
 
 ## Technology Stack
 This project utilizes the following technologies:
@@ -21,24 +28,31 @@ These technologies were used in the development of this project to ensure secure
 
 
 
-## How to Run on Local
-### prerequisite
-* nodejs installed
-* yarn package manager
+## How to run the Application Locally
+### Prerequisites:
+* Node.js installed on your local machine
+* Yarn package manager installed on your local machine
+
+### Follow these steps to run the application locally:
 
 ### Run following command
+* Install Dependencies: Open your terminal and navigate to the project directory. Run the following command to install the project dependencies using Yarn:
 ```
 yarn install
 ```
-#### To start development server
+* Start Development Server: After the dependencies are installed, run the following command to start the development server:
 ```
 yarn run dev 
 ```
-#### To start production server
+This will launch the application in development mode, and you can access it in your web browser at the 8000 port of localhost.
+
+* Start Production Server: If you want to run the application in production mode, you can use the following command:
 ```
 yarn run prod 
 ```
-Here you go!, Project is runnign locally
+This will run the application for production setting (e.g: change response messages).
+
+By following these steps, you will be able to run the application locally on your machine.
 
 ## Hosted on render.com
 
