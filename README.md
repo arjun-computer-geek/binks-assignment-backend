@@ -37,7 +37,4 @@ https://api.postman.com/collections/11797685-8b906d54-463e-4938-9c33-fa0939f6e3c
 
 ## Conclusion
 ### How was my journey with this Project?
-* Done entire project in one day but there were a bit changes what i done during frontend integration.
-* 2-3 hrs spent after completed project for hosting and connecting to forntend.
-* spending 3-4 hrs I realise that we can't set cookie from other origin then i proxy the backend in frontend.
-* When I proxied the react app then it was not supporting by netlify. So finally i made build of that frontend and hosted statically on same location where backend had.
+After completing my project in one day, I made some changes during frontend integration which took me about 2-3 hours. I then spent an additional 1-2 hours trying to set cookies from a different origin, but realized that it wasn't possible. To overcome this, I decided to proxy the backend in the frontend. However, when I tried hosting the React app with the proxy on Netlify, it didn't work. Finally, I built the frontend and hosted it statically on the same location where the backend was hosted to ensure smooth functionality.
