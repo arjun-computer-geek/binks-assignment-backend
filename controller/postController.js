@@ -38,7 +38,9 @@ exports.getSinglePost = catchAsync(async (req, res, next) => {
 
 // Get user Posts => /api/v1/my/posts
 exports.getMyPost = catchAsync(async (req, res, next) => {
-  const posts = await Post.find({ user: req.user._id }).populate("user");
+  const posts = await Post.find({ user: req.user._id })
+    .sort({ _id: -1 })
+    .populate("user");
   if (!posts) {
     return next(new ErrorHandler("No Post found", 404));
   }
